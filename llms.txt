@@ -1,0 +1,18 @@
+# SILLAGES
+
+> SILLAGES is Romeo and Valentin, a duo of filmmakers. We make films and photographs of yachts, cars and private aviation. The site is in English and French.
+
+- Contact: WhatsApp +32 486 62 92 07
+- Instagram: https://www.instagram.com/sillages.films/
+
+## Pages
+
+- [Home](https://a6m0-design.github.io/sillages/): the three worlds, the showreel and the contact.
+- [Yacht](https://a6m0-design.github.io/sillages/yacht.html): superyachts, regattas and life on deck.
+- [Automotive](https://a6m0-design.github.io/sillages/auto.html): launch films, track days and collector cars.
+- [Aviation](https://a6m0-design.github.io/sillages/aviation.html): private jets, take-offs and life on board.
+
+## Optional
+
+- [Legal notice](https://a6m0-design.github.io/sillages/legal.html)
+- [Privacy policy](https://a6m0-design.github.io/sillages/privacy.html)

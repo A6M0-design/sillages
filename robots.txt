@@ -1,0 +1,5 @@
+# Tous les robots sont les bienvenus, moteurs de recherche et assistants IA compris.
+User-agent: *
+Allow: /
+
+Sitemap: https://a6m0-design.github.io/sillages/sitemap.xml

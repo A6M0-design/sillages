@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en" data-theme="ardoise">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>YACHT · SILLAGES</title>
+<meta name="description" content="Yacht: films and photography by Romeo and Valentin.">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-vC1cI8dsE+n7/tOWiTdyWrs/uTTwRFrXF3P1WYIg31Y='; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; media-src 'self' blob:; font-src 'self'; connect-src 'self'; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<link rel="canonical" href="https://a6m0-design.github.io/sillages/yacht.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SILLAGES">
+<meta property="og:title" content="YACHT · SILLAGES">
+<meta property="og:description" content="Yacht: films and photography by Romeo and Valentin.">
+<meta property="og:url" content="https://a6m0-design.github.io/sillages/yacht.html">
+<meta property="og:image" content="https://a6m0-design.github.io/sillages/assets/brand/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="SILLAGES">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="fr_FR">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png">
+<meta name="theme-color" content="#1e2429">
+<link rel="icon" href="assets/brand/SILLAGES_favicon.svg" type="image/svg+xml">
+<link rel="preload" href="assets/fonts/SILLAGES-Regular.woff2?v=3" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/hanken-grotesk-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/css/style.css?v=26">
+<script type="importmap">{ "imports": { "three": "./assets/vendor/three.module.min.js" } }</script>
+<script src="assets/js/config.js?v=26" defer></script>
+<script src="assets/vendor/gsap.min.js" defer></script>
+<script src="assets/vendor/ScrollTrigger.min.js" defer></script>
+<script src="assets/vendor/SplitText.min.js" defer></script>
+<script src="assets/vendor/Flip.min.js" defer></script>
+<script src="assets/vendor/CustomEase.min.js" defer></script>
+<script src="assets/vendor/lenis.min.js" defer></script>
+<script src="assets/vendor/barba.umd.js" defer></script>
+<script type="module" src="assets/js/app.js?v=26"></script>
+</head>
+<body>
+
+<canvas class="gl" aria-hidden="true"></canvas>
+<div class="grain" aria-hidden="true"></div>
+
+<div class="loader is-short" aria-hidden="true">
+  <i class="loader__half loader__half--top"></i><i class="loader__half loader__half--bot"></i>
+  <div class="mark loader__mark"><svg class="logo" viewBox="4.14 -8.87 614.32 114.22" role="img" aria-label="SILLAGES"><g fill="currentColor"><path d="M65.98 13.38Q61.39 11.11 55.13 9.24Q48.86 7.38 42.71 7.38Q33.42 7.38 27.87 11.92Q22.33 16.47 22.33 23.55Q22.33 28.84 25.61 32.42Q28.89 36 34.21 38.53Q39.53 41.07 45.49 43.36Q50.32 45.16 55.09 47.41Q59.85 49.66 63.7 52.91Q67.56 56.17 69.83 60.98Q72.11 65.8 72.11 72.87Q72.11 81.06 68.17 87.49Q64.23 93.92 57.09 97.52Q49.96 101.12 40.36 101.12Q33.18 101.12 27.09 99.4Q21 97.68 16.24 95.23Q11.47 92.78 8.37 90.76L12.5 83.54Q15.67 85.84 20.06 88.05Q24.45 90.26 29.5 91.73Q34.54 93.21 39.48 93.21Q45.12 93.21 50.48 91.04Q55.84 88.87 59.35 84.4Q62.86 79.94 62.86 72.99Q62.86 66.49 59.59 62.38Q56.33 58.27 51.19 55.58Q46.05 52.89 40.22 50.76Q35.46 48.94 30.66 46.86Q25.85 44.77 21.85 41.81Q17.85 38.85 15.48 34.62Q13.1 30.4 13.1 24.39Q13.1 16.96 16.8 11.43Q20.49 5.91 26.89 2.77Q33.29 -0.38 41.52 -0.56Q49.39 -0.56 56.69 1.44Q63.99 3.44 69.44 6.44Z"/><path d="M94.23 0H103.23V100H94.23Z"/><path d="M136.23 0H145.23V91.35H186.97V100H136.23Z"/><path d="M204.25 0H213.25V91.35H254.99V100H204.25Z"/><path d="M282.04 100 317.68 9.89 312.63 10.74 347.12 100H357.55L314.5 -4.64L271.45 100Z"/><path d="M447.36 92.46Q444.95 94.19 441.32 95.75Q437.69 97.31 433.47 98.52Q429.24 99.73 424.8 100.42Q420.36 101.12 416.43 101.12Q404.53 101.12 394.98 97.29Q385.43 93.46 378.64 86.69Q371.85 79.92 368.25 70.88Q364.64 61.84 364.64 51.29Q364.64 39.5 368.68 29.84Q372.71 20.17 379.77 13.24Q386.83 6.31 396.12 2.59Q405.42 -1.12 415.81 -1.12Q423.98 -1.12 431.12 0.87Q438.27 2.87 443.89 6.21L440.72 14.39Q437.62 12.52 433.53 11.06Q429.45 9.6 425.17 8.75Q420.88 7.9 416.82 7.9Q407.47 7.9 399.62 11.06Q391.76 14.22 386 19.95Q380.23 25.69 377.05 33.51Q373.87 41.33 373.87 50.65Q373.87 59.58 376.92 67.16Q379.97 74.73 385.58 80.39Q391.19 86.04 399.01 89.14Q406.83 92.24 416.4 92.24Q422.03 92.24 428.03 90.96Q434.03 89.68 438.31 87.22V62.04H416.64V53.39H447.36Z"/><path d="M470.26 0H533.02V8.65H479.26V45.36H527.52V54.01H479.26V91.35H534.98V100H470.26Z"/><path d="M608.1 13.38Q603.52 11.11 597.25 9.24Q590.98 7.38 584.83 7.38Q575.54 7.38 570 11.92Q564.45 16.47 564.45 23.55Q564.45 28.84 567.73 32.42Q571.02 36 576.33 38.53Q581.65 41.07 587.61 43.36Q592.44 45.16 597.21 47.41Q601.97 49.66 605.83 52.91Q609.68 56.17 611.96 60.98Q614.23 65.8 614.23 72.87Q614.23 81.06 610.29 87.49Q606.35 93.92 599.21 97.52Q592.08 101.12 582.48 101.12Q575.3 101.12 569.21 99.4Q563.12 97.68 558.36 95.23Q553.6 92.78 550.49 90.76L554.62 83.54Q557.79 85.84 562.18 88.05Q566.57 90.26 571.62 91.73Q576.66 93.21 581.6 93.21Q587.24 93.21 592.6 91.04Q597.96 88.87 601.47 84.4Q604.98 79.94 604.98 72.99Q604.98 66.49 601.72 62.38Q598.45 58.27 593.31 55.58Q588.17 52.89 582.35 50.76Q577.58 48.94 572.78 46.86Q567.97 44.77 563.97 41.81Q559.98 38.85 557.6 34.62Q555.22 30.4 555.22 24.39Q555.22 16.96 558.92 11.43Q562.61 5.91 569.01 2.77Q575.41 -0.38 583.64 -0.56Q591.51 -0.56 598.81 1.44Q606.11 3.44 611.56 6.44Z"/></g></svg></div>
+  <div class="loader__by" data-i18n="loader.by">Romeo · Valentin · Filmmakers</div>
+</div>
+
+<div class="bands" aria-hidden="true"><i class="bands__half bands__half--top"></i><i class="bands__half bands__half--bot"></i></div>
+
+<header class="header">
+  <a class="header__brand" href="index.html" aria-label="SILLAGES"><img class="mono" src="assets/brand/monogramme.svg" width="24" height="72" alt="SILLAGES"></a>
+  <nav class="header__nav" aria-label="Main">
+    <a href="index.html" data-roll data-i18n="nav.home">Home</a>
+    <a href="index.html#worlds" data-roll data-i18n="nav.work">Films</a>
+    <a href="#contact" data-roll data-i18n="nav.contact">Contact</a>
+  </nav>
+  <div class="header__tools">
+    <div class="toggle" role="group" aria-label="Language">
+      <button type="button" data-lang="en" aria-pressed="true">EN</button><span>–</span><button type="button" data-lang="fr" aria-pressed="false">FR</button>
+    </div>
+  </div>
+</header>
+
+<div class="progress" aria-hidden="true">
+  <span class="progress__num"><span>01</span></span>
+  <span class="progress__sep">/</span>
+  <span class="progress__total">05</span>
+</div>
+
+<div class="lightbox" role="dialog" aria-modal="true" aria-label="Media viewer">
+  <div class="lightbox__veil"></div>
+  <div class="lightbox__stage"><div class="media"></div></div>
+  <div class="lightbox__ui">
+    <span class="lightbox__count">01 / 06</span>
+    <div class="lightbox__nav"><button type="button" data-lb="prev">Prev</button><button type="button" data-lb="next">Next</button></div>
+    <button type="button" data-lb="close">Close</button>
+  </div>
+</div>
+
+<div data-barba="wrapper">
+  <main data-barba="container" data-barba-namespace="category">
+
+    <section class="c-hero" data-section="Yacht">
+      <div class="media" data-media="yacht.hero" data-type="video" data-kind="yacht" data-ratio="16:9" data-res="hi" data-label="Video Yacht · hero"></div>
+      <div class="c-hero__mask"><h1 class="c-hero__word" data-i18n="cat.yacht">Yacht</h1></div>
+      <div class="c-hero__meta"><span data-i18n="yacht.hero.sub"></span><span>( 01 / 03 )</span></div>
+    </section>
+
+    <section class="c-about" data-section="About">
+      <div class="c-about__bg" aria-hidden="true"><div class="media" data-media="yacht.about" data-type="video" data-kind="yacht" data-ratio="16:9" data-label="Video Yacht · about"></div></div>
+      <div class="c-about__grid">
+        <div>
+          <span class="overline" data-i18n="about.overline">About us</span>
+          <h2 class="c-about__title" data-split data-i18n="yacht.about.title"></h2>
+          <p class="c-about__text" data-i18n="yacht.about.text"></p>
+        </div>
+        <div class="c-about__duo">
+          <figure class="portrait portrait--a">
+            <div class="media" data-media="yacht.portraitA" data-type="photo" data-kind="neutral" data-ratio="4:5" data-label="Portrait Romeo"></div>
+            <figcaption><b>Romeo</b><span data-i18n="about.roleA"></span></figcaption>
+          </figure>
+          <figure class="portrait portrait--b">
+            <div class="media" data-media="yacht.portraitB" data-type="photo" data-kind="neutral" data-ratio="4:5" data-label="Portrait Valentin"></div>
+            <figcaption><b>Valentin</b><span data-i18n="about.roleB"></span></figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="c-work" data-section="Work">
+      <div class="c-work__head">
+        <div>
+          <span class="overline" data-i18n="work.overline">Latest productions</span>
+          <h2 class="c-work__title" data-split data-i18n="work.title">Recent work</h2>
+        </div>
+        <span class="c-work__count" data-films-count="yacht">00</span>
+      </div>
+      <div class="grid" data-gallery="yacht-films" data-films="yacht"></div>
+
+      <div class="stills">
+        <div class="stills__head">
+          <span class="overline" data-i18n="work.photos">Stills</span>
+          <span class="overline" data-stills-count="yacht">( 09 )</span>
+        </div>
+        <div class="stills__rail">
+          <div class="stills__track" data-gallery="yacht-stills" data-stills="yacht"></div>
+        </div>
+        <button class="stills__more" type="button" hidden><span data-i18n="work.more">See all stills</span> <span class="stills__n"></span></button>
+      </div>
+    </section>
+
+    <section class="c-contact" id="contact" data-section="Contact">
+      <span class="overline" data-i18n="catcontact.overline">Contact us</span>
+      <h2 class="c-contact__title" data-split data-i18n="yacht.contact.title"></h2>
+      <a class="btn-wa" href="#" data-wa="yacht.contact.wa" target="_blank" rel="noopener" data-cursor-hide>
+        <span data-i18n="contact.cta">Write to us on WhatsApp</span><svg class="arrow" viewBox="0 0 6 8" aria-hidden="true"><path d="M1 .5 4.5 4 1 7.5" fill="none" stroke="currentColor" stroke-width="1"/></svg>
+      </a>
+    </section>
+
+    <section class="c-next" data-section="Next">
+      <a class="c-next__sticky" href="auto.html" data-transition="dissolve" data-cursor="next" data-next>
+        <div class="c-next__media"><div class="media" data-media="auto.hero" data-type="video" data-kind="auto" data-ratio="16:9" data-res="hi" data-fit="viewport" data-label="Video Auto · hero"></div></div>
+        <span class="overline c-next__top" data-i18n="next.overline">Next world</span>
+        <span class="c-next__word" data-i18n="cat.auto">Automotive</span>
+        <span class="c-next__bar"><span data-i18n="next.hint">Keep scrolling</span><i><b></b></i></span>
+      </a>
+    </section>
+
+  <footer class="footer">
+    <span>© <span data-year>2026</span> <span data-brand>SILLAGES</span> · <span data-i18n="footer.sign">Romeo · Valentin</span></span>
+    <nav class="footer__links" aria-label="Legal">
+      <a href="legal.html" data-roll data-i18n="footer.legal">Legal notice</a>
+      <a href="privacy.html" data-roll data-i18n="footer.privacy">Privacy</a>
+    </nav>
+    <div class="footer__social">
+      <a href="#" data-social="instagram" target="_blank" rel="noopener" data-roll>Instagram</a>
+    </div>
+  </footer>
+  </main>
+</div>
+</body>
+</html>
