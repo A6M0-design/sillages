@@ -1,6 +1,6 @@
 /* Lightbox : le média s'agrandit depuis sa vignette, navigation clavier et glisser. */
-import { cloneSlot } from "../media.js?v=26";
-import { t } from "../i18n.js?v=26";
+import { cloneSlot } from "../media.js?v=27";
+import { t } from "../i18n.js?v=27";
 
 const gsap = window.gsap;
 const pad = (n) => String(n).padStart(2, "0");

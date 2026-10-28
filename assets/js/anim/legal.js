@@ -1,6 +1,6 @@
 /* Pages juridiques : titre en lettres, sommaire, sections révélées. */
-import { splitChars } from "./ui.js?v=26";
-import { reveals } from "./reveal.js?v=26";
+import { splitChars } from "./ui.js?v=27";
+import { reveals } from "./reveal.js?v=27";
 
 const gsap = window.gsap;
 

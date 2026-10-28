@@ -313,9 +313,56 @@ function dropMissingPortraits(root) {
   });
 }
 
+/**
+ * Téléphone : le triptyque de l'accueil devient un seul film plein écran (`media.phone.landing`), sous les trois légendes.
+ * La légende de l'univers à l'image s'allume (`chapters`).
+ */
+function phoneHero(root) {
+  const tri = root.querySelector(".hero__tri");
+  const entry = normalize(resolvePath("phone.landing"));
+  if (!tri || tri.classList.contains("is-single") || !entry || !matchMedia("(max-width: 900px)").matches) return;
+  tri.querySelectorAll(".hero__panel .media").forEach((m) => m.remove());
+  const solo = document.createElement("div");
+  solo.className = "media hero__solo";
+  Object.assign(solo.dataset, { media: "phone.landing", type: "video", ratio: "9:16", label: "Video · landing" });
+  tri.prepend(solo);
+  tri.classList.add("is-single");
+  const labels = [...tri.querySelectorAll(".hero__label")];
+  const marks = entry.chapters || [];
+  let cur = -1;
+  const sync = () => {
+    const v = solo.querySelector("video");
+    const t = v ? v.currentTime : 0;
+    let i = 0;
+    marks.forEach((m, j) => { if (t >= m) i = j; });
+    if (i !== cur) { cur = i; labels.forEach((l, j) => l.classList.toggle("is-on", j === i)); }
+  };
+  sync();
+  solo._sync = sync;
+}
+
+/**
+ * Lecture automatique refusée (iPhone en mode économie d'énergie…) : les films restent sur leur image fixe,
+ * et repartent au premier toucher.
+ */
+let unlocked = false;
+function unlockOnTouch() {
+  if (unlocked) return;
+  unlocked = true;
+  const go = () => {
+    document.querySelectorAll(".media video").forEach((v) => {
+      const s = v.parentElement && v.parentElement._slot;
+      if (s && s.inView && (s.role !== "film" || s.autoInView) && v.paused) v.play().catch(() => {});
+    });
+  };
+  ["touchend", "click"].forEach((t) => document.addEventListener(t, go, { passive: true }));
+}
+
 export function buildMedia(root = document) {
   buildGalleries(root);
   dropMissingPortraits(root);
+  phoneHero(root);
+  unlockOnTouch();
   const slots = [];
   const touch = !matchMedia("(hover: hover)").matches;
   root.querySelectorAll(".media[data-media]").forEach((el) => {
@@ -347,7 +394,10 @@ export function buildMedia(root = document) {
         el, node, source: node, kind: el.dataset.kind, type: isVideo ? "video" : "photo", real: true, version: 0,
         ratio, role, full: entry.full || entry.src, poster: entry.poster || null, autoInView: role === "film" && touch,
       };
-      if (isVideo) { el._slot = slot; videoObserver().observe(el); }
+      if (isVideo) {
+        el._slot = slot; videoObserver().observe(el);
+        if (el._sync) ["timeupdate", "seeked"].forEach((t) => node.addEventListener(t, el._sync));
+      }
     } else {
       const canvas = document.createElement("canvas");
       // le bloc est dessiné au format réel de son emplacement, pour que les repères ne soient pas rognés

@@ -3,7 +3,7 @@
  *  · Accueil : le monogramme seul au centre rejoint le menu ; le triptyque et le nom chromé arrivent (intro.js).
  *  · Autres pages : le nom monte de sa ligne de base, puis l'écran s'ouvre.
  */
-import { playIntro } from "./intro.js?v=26";
+import { playIntro } from "./intro.js?v=27";
 
 const gsap = window.gsap;
 

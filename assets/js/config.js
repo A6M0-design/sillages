@@ -11,7 +11,7 @@
 window.SITE = {
   brand: "SILLAGES",
   // numéro de version des fichiers : à augmenter quand on remplace une vidéo ou une photo (le navigateur reprend la nouvelle)
-  version: 26,
+  version: 27,
   // nom sur l'accueil : blanc (aplat, sans chrome), ou un chrome : nuit, sombre, ardoise, neutre, froid, fort, miroir, doux, tube, ou aplat (papier)
   nameChrome: "blanc",
   // film du monogramme à l'ouverture : "sans-fond" (vraie transparence, sans sol ni reflet) ou "fond" (fond noir, reflet au sol)
@@ -58,9 +58,9 @@ window.SITE = {
   minStills: 0,
   media: {
     yacht: {
-      landing: { src: "media/yacht/landing.mp4", ratio: "9:16" },
-      hero: "media/yacht/hero.mp4",
-      about: "media/yacht/about.mp4",
+      landing: { src: "media/yacht/landing.mp4", poster: "media/yacht/landing.jpg", ratio: "9:16" },
+      hero: { src: "media/yacht/hero.mp4", poster: "media/yacht/hero.jpg" },
+      about: { src: "media/yacht/about.mp4", poster: "media/yacht/about.jpg" },
       portraitA: null,
       portraitB: null,
       films: [
@@ -85,9 +85,9 @@ window.SITE = {
       ],
     },
     auto: {
-      landing: { src: "media/auto/landing.mp4", ratio: "9:16" },
-      hero: "media/auto/hero.mp4",
-      about: "media/auto/about.mp4",
+      landing: { src: "media/auto/landing.mp4", poster: "media/auto/landing.jpg", ratio: "9:16" },
+      hero: { src: "media/auto/hero.mp4", poster: "media/auto/hero.jpg" },
+      about: { src: "media/auto/about.mp4", poster: "media/auto/about.jpg" },
       portraitA: null,
       portraitB: null,
       films: [
@@ -114,9 +114,9 @@ window.SITE = {
       ],
     },
     aviation: {
-      landing: { src: "media/aviation/landing.mp4", ratio: "9:16" },
-      hero: "media/aviation/hero.mp4",
-      about: "media/aviation/hero.mp4",
+      landing: { src: "media/aviation/landing.mp4", poster: "media/aviation/landing.jpg", ratio: "9:16" },
+      hero: { src: "media/aviation/hero.mp4", poster: "media/aviation/hero.jpg" },
+      about: { src: "media/aviation/hero.mp4", poster: "media/aviation/hero.jpg" },
       portraitA: null,
       portraitB: null,
       films: [
@@ -129,6 +129,9 @@ window.SITE = {
     },
     // boucle muette au scroll ; `full` s'ouvre avec le son au clic
     showreel: { src: "media/yacht/hero.mp4", full: "media/yacht/show.mp4", poster: "media/yacht/show.jpg", ratio: "47:20" },
+    // téléphone : à l'accueil, un seul film (montage des trois) à la place du triptyque ;
+    // `chapters` = le moment où commence chaque univers (en s), dans l'ordre yacht, auto, aviation
+    phone: { landing: { src: "media/landing-phone.mp4", poster: "media/landing-phone.jpg", ratio: "9:16", chapters: [0, 5.7, 13.07] } },
   },
 
   /* Ordre de navigation infinie entre les univers */

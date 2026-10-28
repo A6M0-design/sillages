@@ -2,9 +2,9 @@
  * Landing : triptyque et nom chromé ; au scroll, la caméra passe par l'ouverture du A du nom
  * et l'on entre dans la liste des univers (fond liquide). Puis showreel, défilements, contact.
  */
-import { marquees, splitChars, fitFont } from "./ui.js?v=26";
-import { reveals, rollWord } from "./reveal.js?v=26";
-import { createName } from "./name.js?v=26";
+import { marquees, splitChars, fitFont } from "./ui.js?v=27";
+import { reveals, rollWord } from "./reveal.js?v=27";
+import { createName } from "./name.js?v=27";
 
 const gsap = window.gsap;
 const ST = window.ScrollTrigger;
@@ -176,6 +176,8 @@ export function initHome(ctx) {
   function intro(first) {
     const hero = root.querySelector(".hero");
     const tri = hero.querySelector(".hero__tri");
+    const solo = hero.querySelector(".hero__solo video");
+    if (solo) solo.currentTime = 0; // téléphone : le film commence sur le yacht quand l'accueil apparaît
     const tl = gsap.timeline();
     if (!reduced && name) {
       tl.fromTo(name.open, { h: 0 }, { h: name.full, duration: 1.6, ease: "expo.inOut", onUpdate: name.draw }, first ? 0.3 : 0.4)

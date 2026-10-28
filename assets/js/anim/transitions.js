@@ -4,8 +4,8 @@
  *  · continue — univers → univers suivant : la vidéo qui a envahi l'écran devient le hero de la page
  *  · bands    — trois volets, rappel du préloader (pages juridiques, accueil, repli)
  */
-import { cloneSlot } from "../media.js?v=26";
-import { fitFont, gutter } from "./ui.js?v=26";
+import { cloneSlot } from "../media.js?v=27";
+import { fitFont, gutter } from "./ui.js?v=27";
 
 const gsap = window.gsap;
 

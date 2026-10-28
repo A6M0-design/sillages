@@ -4,7 +4,7 @@
  * au scroll, la caméra avance vers le A et passe par son ouverture, comme par une porte.
  * Le nom est chromé ; les chromes viennent du nuancier de la charte (06_SOURCES/board_s_chrome.py).
  */
-import { LETTERS } from "./letters.js?v=26";
+import { LETTERS } from "./letters.js?v=27";
 
 const NS = "http://www.w3.org/2000/svg";
 const VB = { x: 4.14, y: -8.87, w: 614.32, h: 114.22 };

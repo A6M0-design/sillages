@@ -1,5 +1,5 @@
 /* Révélations génériques au scroll : lignes derrière un masque, fondus montants. */
-import { splitLines } from "./ui.js?v=26";
+import { splitLines } from "./ui.js?v=27";
 
 const gsap = window.gsap;
 

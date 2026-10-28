@@ -2,9 +2,9 @@
  * Pages univers : titre-masque qui libère la vidéo, About Us mot à mot, portraits en profondeur,
  * galerie WebGL, photos en défilement horizontal, univers suivant qui s'approche.
  */
-import { splitWords, splitChars, fitFont, gutter } from "./ui.js?v=26";
-import { reveals } from "./reveal.js?v=26";
-import { playSlot } from "../media.js?v=26";
+import { splitWords, splitChars, fitFont, gutter } from "./ui.js?v=27";
+import { reveals } from "./reveal.js?v=27";
+import { playSlot } from "../media.js?v=27";
 
 const gsap = window.gsap;
 const ST = window.ScrollTrigger;

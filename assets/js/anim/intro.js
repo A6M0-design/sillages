@@ -9,7 +9,7 @@
  *     le triptyque arrive vers nous et se pose, et le nom chromé s'ouvre du centre (home.js, intro).
  * La traversée du A, elle, sert de passage vers la liste des univers, au scroll (home.js).
  */
-import { createFilmGL } from "./filmgl.js?v=26";
+import { createFilmGL } from "./filmgl.js?v=27";
 
 const gsap = window.gsap;
 
@@ -39,6 +39,11 @@ const FILM = {
   swap: 5.8,                            // le monogramme est posé : il part vers le menu (temps du film)
   mono: { cx: 961, cy: 528, h: 548 },
 };
+/**
+ * Téléphone en mode économie d'énergie : aucune vidéo ne démarre seule. Le même passage du film (0 → 5,8 s, déjà
+ * accéléré) en image animée WebP, recadré au centre (540 × 1080 px du cadre d'origine) : elle joue une fois, puis le relais.
+ */
+const SEQ = { src: "media/brand/intro-monogramme-phone.webp", w: 540, h: 1080, dur: 2.62, mono: { cx: 270, cy: 528, h: 548 } };
 
 /** Safari et tous les navigateurs de l'iPhone / iPad lisent la transparence en HEVC, pas en WebM. */
 const APPLE = (() => {
@@ -74,12 +79,25 @@ function until(film, t, max) {
  * Pose le monogramme fixe sur celui du film (cadré en `object-fit: cover`) et centre les transformations du film
  * sur son monogramme : les deux peuvent alors voyager ensemble. Renvoie le bas du monogramme (px), pour le reflet.
  */
-function placeOnFilm(mono, film) {
-  const W = film.clientWidth, H = film.clientHeight, k = Math.max(W / FILM.w, H / FILM.h);
-  const cx = W / 2 + (FILM.mono.cx - FILM.w / 2) * k, cy = H / 2 + (FILM.mono.cy - FILM.h / 2) * k;
-  gsap.set(mono, { left: cx, top: cy, height: FILM.mono.h * k });
+function placeOnFilm(mono, film, F = FILM) {
+  const W = film.clientWidth, H = film.clientHeight, k = Math.max(W / F.w, H / F.h);
+  const cx = W / 2 + (F.mono.cx - F.w / 2) * k, cy = H / 2 + (F.mono.cy - F.h / 2) * k;
+  gsap.set(mono, { left: cx, top: cy, height: F.mono.h * k });
   gsap.set(film, { transformOrigin: `${cx}px ${cy}px` });
-  return cy + (FILM.mono.h * k) / 2;
+  return cy + (F.mono.h * k) / 2;
+}
+
+/** Charge l'image animée de secours (écran en portrait seulement) ; résout l'élément prêt, ou null au bout de `max` s. */
+function loadSeq(L, max) {
+  if (!matchMedia("(max-width: 900px) and (orientation: portrait)").matches) return Promise.resolve(null);
+  const img = new Image();
+  img.className = "loader__film loader__seq";
+  img.alt = "";
+  img.src = SEQ.src + (SITE.version ? `?v=${SITE.version}` : "");
+  return Promise.race([
+    img.decode().then(() => img, () => null),
+    new Promise((r) => setTimeout(() => r(null), max * 1000)),
+  ]);
 }
 
 /** Déplacement (translation + échelle) qui pose `from` exactement sur `to`. */
@@ -117,11 +135,17 @@ export function playIntro(L, onReveal) {
       film.defaultPlaybackRate = film.playbackRate = FILM.rate;
       try { await film.play(); played = true; } catch { played = false; } // lecture auto refusée (mode économie…)
     }
+    // lecture refusée sur téléphone : l'image animée prend la place du film
+    const seq = played ? null : await loadSeq(L, 3);
     // film à fond noir : il passe par un canvas WebGL (noir → transparent) ; sans WebGL, la vidéo seule, fusionnée sur l'ardoise
     const gl = played && !FILM.alpha ? createFilmGL(film, L, FILM.w, FILM.h) : null;
-    const vis = gl ? gl.el : film;
-    const travel = played && (FILM.alpha || !!gl);   // le film peut voyager avec le monogramme (pas de cadre noir)
-    if (played) {
+    const vis = seq || (gl ? gl.el : film);
+    const travel = !!seq || (played && (FILM.alpha || !!gl));   // le film peut voyager avec le monogramme (pas de cadre noir)
+    if (seq) {
+      film.after(seq);                                           // l'animation part à l'insertion
+      gsap.to(seq, { opacity: 1, duration: 0.4, ease: "power1.out" });
+      await Promise.all([new Promise((r) => setTimeout(r, SEQ.dur * 1000)), ready(0.5)]);
+    } else if (played) {
       gsap.to(vis, { opacity: 1, duration: 0.5, ease: "power1.out" });
       await Promise.all([until(film, FILM.swap, 10), ready(1)]);
     } else {
@@ -133,6 +157,7 @@ export function playIntro(L, onReveal) {
         gsap.set(mono, { opacity: 0 });
         if (gl) gl.destroy();
         if (film) { film.pause(); film.removeAttribute("src"); film.load(); }
+        if (seq) seq.remove();
         resolve();
       },
     });
@@ -143,7 +168,7 @@ export function playIntro(L, onReveal) {
     if (travel) {
       // 1 · le film continue (son reflet au sol s'efface, s'il en a un) et le monogramme part vers le menu avec le film.
       //     En route, quand il file et rapetisse, le monogramme fixe prend le relais : on ne voit pas le passage.
-      const bottom = placeOnFilm(mono, vis);
+      const bottom = placeOnFilm(mono, vis, seq ? SEQ : FILM);
       gsap.set(mono, { opacity: 0 });
       if (gl) {
         const refl = { r: 1 };

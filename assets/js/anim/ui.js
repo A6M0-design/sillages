@@ -1,5 +1,5 @@
 /* Interactions communes : curseur, aimantation, texte brouillé, défilements infinis, progression. */
-import { t } from "../i18n.js?v=26";
+import { t } from "../i18n.js?v=27";
 
 const gsap = window.gsap;
 export const motion = { vel: 0, dir: 1 };

@@ -3,7 +3,7 @@
  * Caméra calée pour qu'1 unité = 1 px à z = 0 : les plans suivent exactement les éléments HTML.
  */
 import * as THREE from "three";
-import { mediaVert, mediaFrag, liquidVert, liquidFrag } from "./shaders.js?v=26";
+import { mediaVert, mediaFrag, liquidVert, liquidFrag } from "./shaders.js?v=27";
 
 const CAM_Z = 1000;
 

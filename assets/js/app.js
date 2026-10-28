@@ -1,15 +1,15 @@
 /*
  * Point d'entrée : scroll fluide, scène WebGL, langue, thème, navigation Barba et vues.
  */
-import { buildMedia, releaseMedia, tickMedia, initMediaObserver } from "./media.js?v=26";
-import { initialLang, saveLang, applyI18n, lang, pageTitle } from "./i18n.js?v=26";
-import { magnetic, rollLinks, motion, progress } from "./anim/ui.js?v=26";
-import { runLoader } from "./anim/preloader.js?v=26";
-import { initHome } from "./anim/home.js?v=26";
-import { initCategory } from "./anim/category.js?v=26";
-import { initLegal } from "./anim/legal.js?v=26";
-import { createLightbox } from "./anim/lightbox.js?v=26";
-import { transitions, bands } from "./anim/transitions.js?v=26";
+import { buildMedia, releaseMedia, tickMedia, initMediaObserver } from "./media.js?v=27";
+import { initialLang, saveLang, applyI18n, lang, pageTitle } from "./i18n.js?v=27";
+import { magnetic, rollLinks, motion, progress } from "./anim/ui.js?v=27";
+import { runLoader } from "./anim/preloader.js?v=27";
+import { initHome } from "./anim/home.js?v=27";
+import { initCategory } from "./anim/category.js?v=27";
+import { initLegal } from "./anim/legal.js?v=27";
+import { createLightbox } from "./anim/lightbox.js?v=27";
+import { transitions, bands } from "./anim/transitions.js?v=27";
 
 const { gsap, ScrollTrigger, SplitText, Flip, CustomEase, Lenis, barba } = window;
 gsap.registerPlugin(ScrollTrigger, SplitText, Flip, CustomEase);
@@ -48,7 +48,7 @@ gsap.ticker.lagSmoothing(0);
 let gl = null;
 if (useGL) {
   try {
-    const { GL } = await import("./gl/scene.js?v=26");
+    const { GL } = await import("./gl/scene.js?v=27");
     gl = new GL(document.querySelector("canvas.gl"));
     html.classList.add("gl-on");
   } catch (e) {
